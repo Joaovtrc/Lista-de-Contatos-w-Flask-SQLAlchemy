@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+    </style>
+
+</head>
+<body>
+
+<h3>Agenda Telefônica</h3>
+<table>
+    <tr>
+        <td>
+            <center>Nome Completo</center>
+        </td>
+        <td>
+            <center>Telefone</center>
+        </td>
+        <td>
+            <center>Email</center>
+        </td>
+        <td>
+            <center>Endereço</center>
+        </td>
+    </tr>
+    <tr>
+        {% for item in my_list %}
+    <tr>
+        <td>
+            <center>{{item.nome}}</center>
+        </td>
+        <td>
+            <center>{{item.telefones[0].numero}}</center>
+        </td>
+        <td>
+            <center>{{item.email}}</center>
+        </td>
+        <td>
+            <center>{{item.enderecos[0].cep}}</center>
+        </td>
+    </tr>
+        {% endfor %}
+
+</table>
+<br>
+<a href="{{url_for('cadastrar')}}" class="button">Adicionar Contato</a>
+<a href="{{url_for('deletar')}}" class="button">Remover Contato</a></center></td>
+<a href="{{url_for('alterar')}}" class="button">Editar Contato</a>
+
+</body>
+</html>
+
